@@ -21,6 +21,11 @@
       <!-- Activity 7: Render a list containing authors born after 1850. Hint: Make use of the v-for directive to iterate through the array of authors that you have filtered out. -->
       <p>Authors born after 1850:</p>
       <!-- TODO: CODE TO RENDER LIST OF AUTHORS HERE -->
+      <ul>
+        <li v-for="author in modernAuthors" :key="author.id">
+          {{ author.name }} ({{ author.birthYear }})
+        </li>
+      </ul>
 
       <h3>Mapping Arrays</h3>
       <p>Famous works:</p>
@@ -103,6 +108,7 @@ const showMessage = ref(false)
 // Activity 2: Get authors born after 1850
 const modernAuthors = computed(() => {
   // TODO: CODE TO FILTER ARRAY OF AUTHORS HERE
+  return authors.filter((item) => item.birthYear > 1850)
 })
 
 // Activity 3: Get all famous works
