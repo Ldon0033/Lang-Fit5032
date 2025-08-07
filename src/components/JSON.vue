@@ -10,7 +10,6 @@
       <h3>Iterating through Arrays</h3>
       <!-- Activity 6: Render a list containing author names and their birth years. Hint: Make use of the v-for directive to iterate through the array of authors. -->
       <!-- TODO: CODE TO RENDER LIST OF AUTHORS HERE -->
-
       <ul>
         <li v-for="author in authors" :key="author.id">
           {{ author.name }} ({{ author.birthYear }})
@@ -32,6 +31,11 @@
       <ul>
         <!-- Activity 8: Render a list of all famous works. Hint: Use the v-for directive to iterate through the array of authors that you have filtered out. -->
         <!-- TODO: CODE TO RENDER LIST OF FAMOUS WORKS HERE -->
+        <ul>
+          <li v-for="work in allFamousWorks" :key="work">
+            {{ work.title }}
+          </li>
+        </ul>
       </ul>
 
       <h3>Finding in Arrays</h3>
@@ -114,6 +118,7 @@ const modernAuthors = computed(() => {
 // Activity 3: Get all famous works
 const allFamousWorks = computed(() => {
   // TODO: CODE TO GET ALL FAMOUS WORKS HERE
+  return authors.flatMap((author) => author.famousWorks)
 })
 
 // Activity 4: Find author by name
